@@ -20,8 +20,6 @@ class Serie extends Component {
 
   componentWillMount() {
     this.setState({urlItem : 'SHOW123.json'});
-
-   
   }
 
   componentDidMount() {
@@ -51,7 +49,7 @@ class Serie extends Component {
     return (
         <div style={style}>
           HOME
-          <Title />
+          <Title data={this.state.serieInfos}/>
           <EpisodesList />
           <SerieInfos />
         </div>
@@ -59,23 +57,14 @@ class Serie extends Component {
   }
 }
 
-function mapStateToProps(state) {
-    // Whatever is returned will show up as props
-    return {
-      serie: state.serie
-    };
-  }
-  
-  // Anything returned from this function will end up as props
-  // on the BookList container
-  function mapDispatchToProps(dispatch) {
-    // Whenever selectBook is called, the result shoudl be passed
-    // to all of our reducers
-    return bindActionCreators({ loadSerie }, dispatch);
-  }
-  
-  // Promote BookList from a component to a container - it needs to know
-  // about this new dispatch method, selectBook. Make it available
-  // as a prop.
-  export default connect(mapStateToProps, mapDispatchToProps)(Serie);
-  // export default Serie;
+// function mapStateToProps(state) {
+//   return {
+//     serie: state.serie
+//   };
+// }
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ loadSerie }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(Serie);
