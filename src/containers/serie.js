@@ -1,29 +1,25 @@
 import React, { Component } from "react";
 
 import { connect } from "react-redux";
-import { loadSerie } from "../actions";
+import { loadSerieInfo } from "../actions";
 import { bindActionCreators } from "redux";
 
 import Title from "../components/title";
-import EpisodesList from "../components/episodes-list";
+import SeasonList from "../containers/season-list";
 import SerieInfos from "../components/serie-infos";
-
-import _ from "lodash";
-
-const ROOT_URL = `https://sample-api-78c77.firebaseio.com/tv-shows`;
 
 class Serie extends Component {
   constructor(props) {
     super(props);
-    this.state = { urlItem : '', serieInfos : ''}
+    this.state = { serie : '', serieInfos : ''}
   }
 
   componentWillMount() {
-    this.setState({urlItem : 'SHOW123.json'});
+    this.setState({serie : 'SHOW123.json'});
   }
 
   componentDidMount() {
-    this.props.loadSerie(this.state.urlItem)
+    this.props.loadSerieInfo(this.state.serie)
     .then(res => {
       this.setState({ serieInfos: res.payload.data })
     } )
@@ -50,7 +46,7 @@ class Serie extends Component {
         <div style={style}>
           HOME
           <Title data={this.state.serieInfos}/>
-          <EpisodesList />
+          <SeasonList serie={this.state.serie}/>
           <SerieInfos />
         </div>
     );
@@ -64,7 +60,7 @@ class Serie extends Component {
 // }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ loadSerie }, dispatch);
+  return bindActionCreators({ loadSerieInfo }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(Serie);
