@@ -10,12 +10,7 @@ class SerieInfos extends Component {
   render() {
     return (
       <div className="serie-infos">
-        <ul>
-          <li>teste</li>
-          <li>teste</li>
-          <li>teste</li>
-          <li>teste</li>
-        </ul>
+        <h4>serie infos</h4>
       </div>
     );
   }

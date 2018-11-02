@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import EpisodesList from "../components/episodes-list";
 
 import { connect } from 'react-redux';
-import { loadSerieEpisodes, selectSeason } from '../actions';
+import { loadSerieEpisodes } from '../actions';
 import { bindActionCreators } from "redux";
 
 import _ from "lodash";
@@ -10,43 +11,61 @@ class SeasonList extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { episodes : null }
+    this.state = { episodes: null, selectedSeason: null }
   }
 
   componentWillMount() {
     this.props.loadSerieEpisodes(this.props.serie)
-    .then(res => {
-      this.setState({ episodes : _.compact(res.payload.data) })
-    });
+      .then(res => {
+        var group = _.groupBy(_.compact(res.payload.data), 'SeasonNumber');
+        this.setState({ episodes: group, selectedSeason: group[1] })
+      });
+  }
+
+  selectSeason(selectedSeason) {
+    this.setState({ selectedSeason })
   }
 
   renderList() {
-    
-    if(_.isEmpty(this.state.episodes)){
+
+    if (_.isEmpty(this.state.episodes)) {
       return "Loading..."
     }
 
-    var filtered = _.groupBy(this.state.episodes, 'SeasonNumber' );
+    return _.map(this.state.episodes, (value, key) => {
+      return (
+        <li
+          key={key}
+          onClick={() => this.selectSeason(value)}
+          className="list-group-item"
+        >
+          {key}
+        </li>
+      );
+    });
+  }
 
+  renderEpisodes() {
+    if (!this.state.episodes) {
+      return <div>Loading...</div>;
+    }
 
-    // return _.map(this.props.episodes, episode => {
-    //   return (
-    //     <li 
-    //       key={season.title}
-    //       onClick={() => this.props.selectSeason(episode)}
-    //       className="list-group-item"
-    //     >
-    //       {season.title}
-    //     </li>
-    //   );
-    // });
+    return (
+      <EpisodesList data={this.state.selectedSeason} />
+    )
   }
 
   render() {
     return (
-      <ul className="list-group">
-        {this.renderList()}
-      </ul>
+      <div>
+        <ul className="list-group">
+          {this.renderList()}
+        </ul>
+
+        <div>
+          {this.renderEpisodes()}
+        </div>
+      </div>
     );
   }
 }
@@ -58,7 +77,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ selectSeason, loadSerieEpisodes }, dispatch);
+  return bindActionCreators({ loadSerieEpisodes }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SeasonList);

@@ -33,22 +33,21 @@ class Serie extends Component {
 
     const style = {
         background : `url(${this.state.serieInfos.Images.Background})`,
-        backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        height:`${window.innerHeight}px !important`,
+        height: `${window.innerHeight}px !important`,
         overflow:'hidden',
-        height: '100%'
-        // backgroundColor: 'red'
     }
 
     return (
+      <div className="background">
         <div style={style}>
           HOME
           <Title data={this.state.serieInfos}/>
           <SeasonList serie={this.state.serie}/>
           <SerieInfos />
         </div>
+      </div>
     );
   }
 }
