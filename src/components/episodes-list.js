@@ -1,20 +1,21 @@
 import React, { Component } from "react";
 
+import Collapsible from './collapsible';
+
 class EpisodesList extends Component {
     constructor(props){
         super(props)
     }
 
     renderList() {
-
         return _.map(this.props.data, episode => {
             return (
             <li 
                 key={episode.ID}
-                onClick={() => this.selectEpisode(episode)}
+                // onClick={() => this.selectEpisode(episode)}
                 className="list-group-item"
             >
-                {episode.EpisodeNumber} {episode.Title}
+                <Collapsible data={episode} />
             </li>
             );
         });
@@ -22,7 +23,11 @@ class EpisodesList extends Component {
 
     render() {
         return (
-            <div>{this.renderList()}</div>
+            <div className="episodes-list">
+                <ul className="list-group">
+                    {this.renderList()}
+                </ul>
+            </div>
         );
     }
 }

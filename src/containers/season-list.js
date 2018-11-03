@@ -57,7 +57,7 @@ class SeasonList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="season-list">
         <ul className="list-group">
           {this.renderList()}
         </ul>
