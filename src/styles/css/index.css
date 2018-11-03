@@ -399,7 +399,7 @@ th {
 
 /*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
 html {
-  color: #222;
+  color: #FFF;
   font-size: 1em;
   line-height: 1.4;
 }
@@ -554,7 +554,7 @@ body {
   font-family: "Nunito", sans-serif;
 }
 
-.container {
+.root {
   height: 100%;
 }
 
@@ -582,17 +582,11 @@ body {
   padding: 0;
 }
 .content .season-list {
-  height: auto;
-  max-height: 600px;
-  display: inline-block;
-  position: relative;
+  background-color: #131719;
 }
 .content .episodes-list {
   overflow: auto;
   max-height: -webkit-fill-available;
-  display: block;
-  position: relative;
-  width: 25%;
 }
 
 .footer {
@@ -686,8 +680,8 @@ body {
   }
 
   nav {
-    float: right;
-    width: 38%;
+    float: left;
+    width: 100%;
   }
 
   /* ============

@@ -37,7 +37,6 @@ class SeasonList extends Component {
         <li
           key={key}
           onClick={() => this.selectSeason(value)}
-          className="list-group-item"
         >
           {key}
         </li>
@@ -51,20 +50,20 @@ class SeasonList extends Component {
     }
 
     return (
-      <EpisodesList data={this.state.selectedSeason} />
+      <EpisodesList season={this.state.selectedSeason} />
     )
   }
 
   render() {
     return (
-      <div className="season-list">
-        <ul className="list-group">
-          {this.renderList()}
-        </ul>
+      <div className="">
+        <nav>
+          <ul className="season-list">
+            {this.renderList()}
+          </ul>
+        </nav>
 
-        <div>
-          {this.renderEpisodes()}
-        </div>
+        {this.renderEpisodes()}
       </div>
     );
   }

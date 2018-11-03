@@ -1,7 +1,7 @@
 /*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
 
 html {
-    color: #222;
+    color: #FFF;
     font-size: 1em;
     line-height: 1.4;
 }
@@ -162,7 +162,7 @@ body {
     font-family: 'Nunito', sans-serif;
 }
 
-.container {
+.root {
     height: 100%;
 }
 
@@ -187,29 +187,29 @@ body {
     position: relative;
     height: 60%;
     margin: 0;
-    padding: 0; // season-list
+    padding: 0;
+
     .season-list {
-        height: auto;
-        max-height: 600px;
-        display: inline-block;
-        position: relative; // overflow: auto;
-    } // episodes list
+        // season-list
+        background-color: #131719;
+
+    }
     .episodes-list {
+        // episodes list
         overflow: auto;
         max-height: -webkit-fill-available;
-        display: block;
-        position: relative;
-        width: 25%;
+        // display: block;
+        // position: static;
+        // width: 25%;
     }
 }
 
 .footer {
     display: block;
     position: relative;
-    height: 30%; 
+    height: 30%;
     background-color: #131719;
-    bottom: 0;
-    // serie infos
+    bottom: 0; // serie infos
     .serie-infos {
         display: block;
         position: relative;
@@ -292,8 +292,8 @@ body {
         float: left;
     }
     nav {
-        float: right;
-        width: 38%;
+        float: left;
+        width: 100%;
     }
     /* ============
     WIDE: Main

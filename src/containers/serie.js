@@ -5,8 +5,10 @@ import { loadSerieInfo } from "../actions";
 import { bindActionCreators } from "redux";
 
 import Title from "../components/title";
-import SeasonList from "../containers/season-list";
 import SerieInfos from "../components/serie-infos";
+import SeasonList from "../containers/season-list";
+
+import { Row, Col, getRowProps, getColumnProps } from 'react-flexbox-grid';
 
 class Serie extends Component {
   constructor(props) {
@@ -44,26 +46,41 @@ class Serie extends Component {
     return (
       <div className="background">
         <div style={style}>
-          <div className="header">
+          {/* <div className="header">
             <Title data={this.state.serieInfos} />
+          </div> */}
+
+          <div className="header">
+            <div className="container">
+              <Row middle="xs" start="xs">
+                <Col lg={12} md={12} sm={12} xs={12}>
+                  <Title data={this.state.serieInfos} />
+                </Col>
+              </Row>
+            </div>
           </div>
+
+
           <div className="content">
-            <SeasonList serie={this.state.serie} />
+            <div className="container">
+              <Row middle="xs" end="xs">
+                <Col md={6}>
+                  <SeasonList serie={this.state.serie} />
+                </Col>
+              </Row>
+            </div>
           </div>
+
           <div className="footer">
-            <SerieInfos />
+            <div className="container">
+              <SerieInfos serieInfos={this.state.serieInfos} />
+            </div>
           </div>
         </div>
       </div>
     );
   }
 }
-
-// function mapStateToProps(state) {
-//   return {
-//     serie: state.serie
-//   };
-// }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ loadSerieInfo }, dispatch);

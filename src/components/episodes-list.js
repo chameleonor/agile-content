@@ -3,31 +3,25 @@ import React, { Component } from "react";
 import Collapsible from './collapsible';
 
 class EpisodesList extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
     }
 
     renderList() {
-        return _.map(this.props.data, episode => {
+        return _.map(this.props.season, episode => {
             return (
-            <li 
-                key={episode.ID}
-                // onClick={() => this.selectEpisode(episode)}
-                className="list-group-item"
-            >
-                <Collapsible data={episode} />
-            </li>
+                <li key={episode.ID}>
+                    <Collapsible data={episode} />
+                </li>
             );
         });
     }
 
     render() {
         return (
-            <div className="episodes-list">
-                <ul className="list-group">
-                    {this.renderList()}
-                </ul>
-            </div>
+            <ul className="list-group">
+                {this.renderList()}
+            </ul>
         );
     }
 }
