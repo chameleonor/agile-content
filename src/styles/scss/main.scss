@@ -182,32 +182,65 @@ body {
     padding: 0;
 }
 
+$prefix: col-;
 .content {
     display: block;
     position: relative;
-    height: 60%;
+    height: 75%;
     margin: 0;
     padding: 0;
-
+    .container,
+    .row {
+        height: 100% !important;
+    }
     .season-list {
         // season-list
-        background-color: #131719;
-
+        background-color: transparent;
+        height: 100%;
+        max-height: 100%;
+        .#{$prefix} {
+            height: 60%;
+        }
+        nav {
+            background-color: #131719;
+        }
     }
     .episodes-list {
         // episodes list
         overflow: auto;
-        max-height: -webkit-fill-available;
-        // display: block;
+        max-height: -webkit-fill-available; // display: block;
         // position: static;
         // width: 25%;
+        // episode detail panel
+        .panel {
+            .panel-heading {
+                cursor: pointer;
+            }
+            .panel-collapse {
+                overflow: hidden;
+                transition: height 0.5s ease-out;
+            }
+            .panel-body {
+                border: none !important;
+            }
+            h4 {
+                margin-top: 5px !important;
+                margin-bottom: 2px;
+            }
+            p {
+                height: auto;
+                padding: 4px;
+                margin: 1px;
+                width: auto;
+            }
+        }
     }
 }
 
 .footer {
     display: block;
     position: relative;
-    height: 30%;
+    height: 20%;
     background-color: #131719;
     bottom: 0; // serie infos
     .serie-infos {
@@ -218,28 +251,6 @@ body {
         h4 {
             margin: 0
         }
-    }
-} // episode detail panel
-.panel {
-    .panel-heading {
-        cursor: pointer;
-    }
-    .panel-collapse {
-        overflow: hidden;
-        transition: height 0.5s ease-out;
-    }
-    .panel-body {
-        border: none !important;
-    }
-    h4 {
-        margin-top: 5px !important;
-        margin-bottom: 2px;
-    }
-    p {
-        height: auto;
-        padding: 4px;
-        margin: 1px;
-        width: auto;
     }
 }
 

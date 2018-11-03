@@ -178,22 +178,54 @@ body {
 .content {
   display: block;
   position: relative;
-  height: 60%;
+  height: 75%;
   margin: 0;
   padding: 0;
 }
+.content .container,
+.content .row {
+  height: 100% !important;
+}
 .content .season-list {
+  background-color: transparent;
+  height: 100%;
+  max-height: 100%;
+}
+.content .season-list .col- {
+  height: 60%;
+}
+.content .season-list nav {
   background-color: #131719;
 }
 .content .episodes-list {
   overflow: auto;
   max-height: -webkit-fill-available;
 }
+.content .episodes-list .panel .panel-heading {
+  cursor: pointer;
+}
+.content .episodes-list .panel .panel-collapse {
+  overflow: hidden;
+  transition: height 0.5s ease-out;
+}
+.content .episodes-list .panel .panel-body {
+  border: none !important;
+}
+.content .episodes-list .panel h4 {
+  margin-top: 5px !important;
+  margin-bottom: 2px;
+}
+.content .episodes-list .panel p {
+  height: auto;
+  padding: 4px;
+  margin: 1px;
+  width: auto;
+}
 
 .footer {
   display: block;
   position: relative;
-  height: 30%;
+  height: 20%;
   background-color: #131719;
   bottom: 0;
 }
@@ -205,27 +237,6 @@ body {
 }
 .footer .serie-infos h4 {
   margin: 0;
-}
-
-.panel .panel-heading {
-  cursor: pointer;
-}
-.panel .panel-collapse {
-  overflow: hidden;
-  transition: height 0.5s ease-out;
-}
-.panel .panel-body {
-  border: none !important;
-}
-.panel h4 {
-  margin-top: 5px !important;
-  margin-bottom: 2px;
-}
-.panel p {
-  height: auto;
-  padding: 4px;
-  margin: 1px;
-  width: auto;
 }
 
 /* ==========================================================================

@@ -19,7 +19,7 @@ class EpisodesList extends Component {
 
     render() {
         return (
-            <ul className="list-group">
+            <ul>
                 {this.renderList()}
             </ul>
         );

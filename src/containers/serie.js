@@ -8,7 +8,7 @@ import Title from "../components/title";
 import SerieInfos from "../components/serie-infos";
 import SeasonList from "../containers/season-list";
 
-import { Row, Col, getRowProps, getColumnProps } from 'react-flexbox-grid';
+import { Row, Col } from 'react-flexbox-grid';
 
 class Serie extends Component {
   constructor(props) {
@@ -34,22 +34,20 @@ class Serie extends Component {
     }
 
     const style = {
-      background: `url(${this.state.serieInfos.Images.Background})`,
+      // background: `url(${this.state.serieInfos.Images.Background}), linear-gradient(to bottom, transparent 90%, black 90%)`,
+      background: `linear-gradient(to bottom, transparent 0%, black 80%), url(${this.state.serieInfos.Images.Background})`,
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       // height: `${window.innerHeight}px !important`,
       height: '100%',
       overflow: 'auto',
-      display: 'block'
+      display: 'block',
+      left: '-100px'
     }
 
     return (
       <div className="background">
         <div style={style}>
-          {/* <div className="header">
-            <Title data={this.state.serieInfos} />
-          </div> */}
-
           <div className="header">
             <div className="container">
               <Row middle="xs" start="xs">
@@ -60,14 +58,15 @@ class Serie extends Component {
             </div>
           </div>
 
-
           <div className="content">
             <div className="container">
-              <Row middle="xs" end="xs">
-                <Col md={6}>
+              {/* <Row top="lg" end="lg">
+                <Col lg={12} md={12} sm={12} xs={12}>
                   <SeasonList serie={this.state.serie} />
                 </Col>
-              </Row>
+              </Row> */}
+
+              <SeasonList serie={this.state.serie} />
             </div>
           </div>
 

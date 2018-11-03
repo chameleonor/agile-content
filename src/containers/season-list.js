@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { loadSerieEpisodes } from '../actions';
 import { bindActionCreators } from "redux";
 
+import { Row, Col } from 'react-flexbox-grid';
+
 import _ from "lodash";
 
 class SeasonList extends Component {
@@ -56,14 +58,19 @@ class SeasonList extends Component {
 
   render() {
     return (
-      <div className="">
-        <nav>
-          <ul className="season-list">
-            {this.renderList()}
-          </ul>
-        </nav>
+      <div className="season-list">
+        <Row top="lg" end="lg">
+          <Col md={6}>
 
-        {this.renderEpisodes()}
+            <nav>
+              <ul>
+                {this.renderList()}
+              </ul>
+            </nav>
+
+            {this.renderEpisodes()}
+          </Col>
+        </Row>
       </div>
     );
   }
