@@ -202,10 +202,8 @@ body {
 .content {
   display: block;
   position: relative;
-  height: 65%;
+  height: 60%;
   max-height: 75%;
-  margin: 0;
-  padding: 0;
   overflow: hidden;
 }
 .content .container,
@@ -223,15 +221,32 @@ body {
   /* for Safari */
   background-clip: padding-box;
   /* for IE9+, Firefox 4+, Opera, Chrome */
+  text-align: left !important;
+}
+.content .container nav ul li,
+.content .season-list nav ul li,
+.content .row nav ul li,
+.content [class^=col-] nav ul li {
+  display: inline-block;
+  padding: 10px 0;
+  width: 3em;
+  text-align: center;
+  opacity: 0.5;
+}
+.content .container nav ul .liActive,
+.content .season-list nav ul .liActive,
+.content .row nav ul .liActive,
+.content [class^=col-] nav ul .liActive {
+  background-color: red;
 }
 .content .container .episodes-list,
 .content .season-list .episodes-list,
 .content .row .episodes-list,
 .content [class^=col-] .episodes-list {
   display: block;
-  height: 95% !important;
+  height: 90%;
   position: relative;
-  max-height: 95%;
+  max-height: 90%;
   width: 100%;
   margin: 0;
   overflow: hidden;
@@ -336,7 +351,7 @@ body {
 .footer {
   display: block;
   position: fixed;
-  height: 20%;
+  height: 25%;
   width: 100%;
   background-color: #131719;
   bottom: 0;
@@ -344,6 +359,76 @@ body {
 .footer .container,
 .footer .row {
   height: 100% !important;
+}
+.footer .container .serie-infos-menu,
+.footer .row .serie-infos-menu {
+  margin: 1.2em 0;
+}
+.footer .container nav ul,
+.footer .row nav ul {
+  border-bottom: 2px solid rgba(187, 187, 187, 0.2);
+  -webkit-background-clip: padding-box;
+  /* for Safari */
+  background-clip: padding-box;
+  /* for IE9+, Firefox 4+, Opera, Chrome */
+  text-align: left !important;
+}
+.footer .container nav ul li,
+.footer .row nav ul li {
+  font-size: 18pt;
+  display: inline-block;
+  padding: 10px 0;
+  margin-right: 10%;
+  width: auto;
+  text-align: left;
+  opacity: 0.5;
+}
+.footer .container .general h3,
+.footer .row .general h3 {
+  margin: 0;
+}
+.footer .container .general p,
+.footer .row .general p {
+  margin-bottom: 0;
+  padding-bottom: 10px;
+}
+.footer .container .general ul,
+.footer .row .general ul {
+  width: 100%;
+  list-style: none;
+  height: 100%;
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+.footer .container .general ul li,
+.footer .row .general ul li {
+  width: auto;
+  height: auto;
+  display: inline-block;
+  text-align: center;
+  padding: 0.5em;
+  right: 0 2em;
+}
+.footer .container .general .general-icon,
+.footer .row .general .general-icon {
+  content: "";
+  position: relative;
+  display: block;
+  color: white;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  height: 6em;
+  width: 6em;
+  filter: opacity(50%);
+  background-size: cover;
+  vertical-align: bottom;
+  text-align: center;
+}
+.footer .container .general .general-icon div,
+.footer .row .general .general-icon div {
+  position: relative;
+  top: 100%;
 }
 .footer .container .elenco-carousel,
 .footer .row .elenco-carousel {
@@ -412,28 +497,25 @@ body {
   margin-bottom: 5px;
   padding-left: 0;
 }
-.footer .general h3 {
-  margin: 0;
-}
-.footer .general p {
-  margin-bottom: 0;
-  padding-bottom: 10px;
-}
 
 .lg {
   width: 100% !important;
+  height: 86%;
 }
 
 .md {
   width: 60% !important;
+  height: 95%;
 }
 
 .sm {
   width: 50% !important;
+  height: 95%;
 }
 
 .xs {
   width: 40% !important;
+  height: 95%;
 }
 
 @media only screen and (min-width: 480px) {
@@ -497,9 +579,53 @@ body {
   /* ====================
    WIDE: AUTHOR
   ==================== */
+  .header {
+    height: 10%;
+  }
+  .header .title {
+    top: 0;
+    height: 90%;
+    margin: 1em 0 !important;
+  }
+  .header .title h1 {
+    font-size: 3em !important;
+    line-height: 0.5em;
+    margin: 0;
+    text-align: center;
+  }
+  .header .title h2 {
+    font-size: 1em;
+    text-align: center;
+  }
+
+  .content {
+    height: 90% !important;
+  }
+  .content .episodes-list {
+    height: 80% !important;
+  }
+
   .footer {
     overflow: auto;
-    height: 400px !important;
+    height: 40% !important;
+  }
+}
+@media only screen and (max-width: 346px) {
+  .header {
+    height: 10%;
+  }
+  .header .title {
+    top: 0;
+    height: 100%;
+    margin-bottom: 1em 0 !important;
+  }
+  .header .title h1 {
+    font-size: 1em !important;
+    line-height: 0.5em;
+    margin: 0;
+  }
+  .header .title h2 {
+    font-size: 1em;
   }
 }
 @media only screen and (min-width: 480px) {
@@ -532,10 +658,22 @@ body {
   .oldie nav a {
     margin: 0 0.7%;
   }
+
+  .header .title h1 {
+    text-align: center;
+  }
+  .header .title h2 {
+    font-size: 1.2em;
+    text-align: center;
+  }
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 960px) {
   .footer {
     height: 30% !important;
+    overflow: auto;
+  }
+  .footer .general ul li {
+    margin-bottom: 1em;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -582,6 +720,24 @@ body {
     width: 1026px;
     /* 1140px - 10% for margins */
     margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 1465px) {
+  .footer .general .general-icon {
+    height: 5em !important;
+    width: 5em !important;
+  }
+}
+@media only screen and (max-width: 1265px) {
+  .footer .general .general-icon {
+    height: 4em !important;
+    width: 4em !important;
+  }
+}
+@media (min-width: 960px) and (max-width: 1261px) {
+  .footer .general .general-icon {
+    height: 3.5em !important;
+    width: 3.5em !important;
   }
 }
 /* ==========================================================================

@@ -37,7 +37,8 @@ class Collapsible extends Component {
             height: "20em",
             overflow:'hidden',
             width: '100%',
-            margin: '5px 0'
+            margin: '5px 0',
+            filter: 'brightness(60%)'
         }
 
         return (

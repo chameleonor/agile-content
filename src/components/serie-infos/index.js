@@ -44,7 +44,7 @@ class SerieInfos extends Component {
       <Row middle="lg" start="lg">
 
         <Col lg={12} md={12} sm={12} xs={12}>
-          <nav clasName="serie-infos-menu">
+          <nav className="serie-infos-menu">
             <ul>
               <li onClick={() => { this.setState({ option: 0 }) }}>General</li>
               <li onClick={() => { this.setState({ option: 1 }) }}>Elenco</li>

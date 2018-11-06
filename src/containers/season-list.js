@@ -13,10 +13,16 @@ class SeasonList extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { episodes: null, selectedSeason: null, colSize: null };
+    this.state = { episodes: null, selectedSeason: null, colSize: null, isActive: false, };
 
+    this.toggleClass = this.toggleClass.bind(this);
     this.updateDimensions = this.updateDimensions.bind(this);
   }
+
+  toggleClass() {
+    const currentState = this.state.isActive;
+    this.setState({ isActive: !currentState });
+  };
 
   updateDimensions() {
     if (window.innerWidth <= 768) {
@@ -64,8 +70,12 @@ class SeasonList extends Component {
     window.removeEventListener("resize", this.updateDimensions);
   }
 
-  selectSeason(selectedSeason) {
+  selectSeason(selectedSeason, e) {
+    e.preventDefault();
+    console.log(e)
+    this.toggleClass()
     this.setState({ selectedSeason })
+    // this.setState.()
   }
 
   renderList() {
@@ -78,9 +88,10 @@ class SeasonList extends Component {
       return (
         <li
           key={key}
-          onClick={() => this.selectSeason(value)}
+          onClick={(e) => this.selectSeason(value, e)}
+          className={this.state.isActive ? 'liActive' : null}
         >
-          {key}
+          T{key}
         </li>
       );
     });
