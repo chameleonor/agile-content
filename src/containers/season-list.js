@@ -13,15 +13,55 @@ class SeasonList extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { episodes: null, selectedSeason: null }
+    this.state = { episodes: null, selectedSeason: null, colSize: null };
+
+    this.updateDimensions = this.updateDimensions.bind(this);
+  }
+
+  updateDimensions() {
+    if (window.innerWidth <= 768) {
+      console.log('=========> 768')
+      this.setState({
+        colSize: "lg"
+      })
+    } else if (1150 >= window.innerWidth && window.innerWidth > 768) {
+      console.log('=========> 991')
+      this.setState({
+        colSize: "md"
+      })
+    } else if (1400 >= window.innerWidth && window.innerWidth > 1150) {
+      console.log('=========> 991')
+      this.setState({
+        colSize: "sm"
+      })
+    } else if (window.innerWidth > 1400) {
+      console.log('=========> 991')
+      this.setState({
+        colSize: "xs"
+      })
+    }
+    // console.log('hi')
   }
 
   componentWillMount() {
+
+    this.updateDimensions();
+
     this.props.loadSerieEpisodes(this.props.serie)
       .then(res => {
         var group = _.groupBy(_.compact(res.payload.data), 'SeasonNumber');
         this.setState({ episodes: group, selectedSeason: group[1] })
       });
+
+    this.updateDimensions();
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.updateDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions);
   }
 
   selectSeason(selectedSeason) {
@@ -59,10 +99,11 @@ class SeasonList extends Component {
   }
 
   render() {
+
     return (
       <div className="season-list">
-        <Row top="lg" end="lg">
-          <Col lg={6} md={12} sm={12} xs={12}>
+        <Row top="lg" end="xs">
+          <Col className={this.state.colSize}>
 
             <nav>
               <ul>

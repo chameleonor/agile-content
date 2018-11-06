@@ -33,10 +33,11 @@ class Collapsible extends Component {
             backgroundImage : `url(${Image})`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
-            height: '200px',
+            // height: '200px',
+            height: "20em",
             overflow:'hidden',
             width: 'auto',
-            margin: '5px'
+            margin: '5px 0'
         }
 
         return (
