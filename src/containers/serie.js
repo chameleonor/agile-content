@@ -40,9 +40,8 @@ class Serie extends Component {
       backgroundSize: "cover",
       // height: `${window.innerHeight}px !important`,
       height: '100%',
-      overflow: 'auto',
-      display: 'block',
-      left: '-100px'
+      overflow: 'hidden',
+      display: 'block'
     }
 
     return (
@@ -60,12 +59,6 @@ class Serie extends Component {
 
           <div className="content">
             <div className="container">
-              {/* <Row top="lg" end="lg">
-                <Col lg={12} md={12} sm={12} xs={12}>
-                  <SeasonList serie={this.state.serie} />
-                </Col>
-              </Row> */}
-
               <SeasonList serie={this.state.serie} />
             </div>
           </div>

@@ -52,7 +52,9 @@ class SeasonList extends Component {
     }
 
     return (
-      <EpisodesList season={this.state.selectedSeason} />
+      <div className="episodes-list">
+        <EpisodesList season={this.state.selectedSeason} />
+      </div>
     )
   }
 
@@ -60,7 +62,7 @@ class SeasonList extends Component {
     return (
       <div className="season-list">
         <Row top="lg" end="lg">
-          <Col md={6}>
+          <Col lg={6} md={12} sm={12} xs={12}>
 
             <nav>
               <ul>
@@ -69,6 +71,7 @@ class SeasonList extends Component {
             </nav>
 
             {this.renderEpisodes()}
+
           </Col>
         </Row>
       </div>

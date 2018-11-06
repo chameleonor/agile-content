@@ -577,70 +577,235 @@ body {
 .content {
   display: block;
   position: relative;
-  height: 75%;
+  height: 70%;
+  max-height: 75%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 .content .container,
-.content .row {
+.content .season-list,
+.content .row,
+.content [class^=col-] {
   height: 100% !important;
 }
-.content .season-list {
-  background-color: transparent;
-  height: 100%;
-  max-height: 100%;
-}
-.content .season-list .col- {
-  height: 60%;
-}
-.content .season-list nav {
+.content .container nav,
+.content .season-list nav,
+.content .row nav,
+.content [class^=col-] nav {
   background-color: #131719;
 }
-.content .episodes-list {
-  overflow: auto;
-  max-height: -webkit-fill-available;
+.content .container .episodes-list,
+.content .season-list .episodes-list,
+.content .row .episodes-list,
+.content [class^=col-] .episodes-list {
+  display: block;
+  height: 95% !important;
+  position: relative;
+  max-height: 95%;
+  width: 100%;
+  margin: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
-.content .episodes-list .panel .panel-heading {
+.content .container .episodes-list ul,
+.content .season-list .episodes-list ul,
+.content .row .episodes-list ul,
+.content [class^=col-] .episodes-list ul {
+  overflow: auto;
+  width: 100%;
+  list-style: none;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+.content .container .episodes-list .panel .panel-heading,
+.content .season-list .episodes-list .panel .panel-heading,
+.content .row .episodes-list .panel .panel-heading,
+.content [class^=col-] .episodes-list .panel .panel-heading {
   cursor: pointer;
 }
-.content .episodes-list .panel .panel-collapse {
+.content .container .episodes-list .panel .panel-collapse,
+.content .season-list .episodes-list .panel .panel-collapse,
+.content .row .episodes-list .panel .panel-collapse,
+.content [class^=col-] .episodes-list .panel .panel-collapse {
   overflow: hidden;
   transition: height 0.5s ease-out;
 }
-.content .episodes-list .panel .panel-body {
+.content .container .episodes-list .panel .panel-body,
+.content .season-list .episodes-list .panel .panel-body,
+.content .row .episodes-list .panel .panel-body,
+.content [class^=col-] .episodes-list .panel .panel-body {
   border: none !important;
 }
-.content .episodes-list .panel h4 {
+.content .container .episodes-list .panel h4,
+.content .season-list .episodes-list .panel h4,
+.content .row .episodes-list .panel h4,
+.content [class^=col-] .episodes-list .panel h4 {
   margin-top: 5px !important;
   margin-bottom: 2px;
 }
-.content .episodes-list .panel p {
+.content .container .episodes-list .panel p,
+.content .season-list .episodes-list .panel p,
+.content .row .episodes-list .panel p,
+.content [class^=col-] .episodes-list .panel p {
   height: auto;
   padding: 4px;
   margin: 1px;
   width: auto;
+  text-align: justify;
 }
 
 .footer {
   display: block;
-  position: relative;
+  position: fixed;
   height: 20%;
+  width: 100%;
   background-color: #131719;
   bottom: 0;
 }
-.footer .serie-infos {
-  display: block;
-  position: relative;
-  width: 100%;
-  height: 100%;
+.footer .container,
+.footer .row {
+  height: 100% !important;
 }
-.footer .serie-infos h4 {
+.footer .container .elenco-carousel,
+.footer .row .elenco-carousel {
+  height: 100% !important;
+}
+.footer .container .elenco-carousel [class^=col-],
+.footer .row .elenco-carousel [class^=col-] {
+  height: 100% !important;
+}
+.footer .container .elenco-carousel [class^=col-] .carousel-slider,
+.footer .row .elenco-carousel [class^=col-] .carousel-slider {
+  padding-bottom: 10px;
+}
+.footer .container .elenco-carousel [class^=col-] div, .footer .container .elenco-carousel [class^=col-] .carousel-slider, .footer .container .elenco-carousel [class^=col-] .carousel-slider ul,
+.footer .row .elenco-carousel [class^=col-] div,
+.footer .row .elenco-carousel [class^=col-] .carousel-slider,
+.footer .row .elenco-carousel [class^=col-] .carousel-slider ul {
+  margin-top: 10px;
+  height: 80% !important;
+}
+.footer .container .elenco-carousel [class^=col-] div .carousel .slide, .footer .container .elenco-carousel [class^=col-] .carousel-slider .carousel .slide, .footer .container .elenco-carousel [class^=col-] .carousel-slider ul .carousel .slide,
+.footer .row .elenco-carousel [class^=col-] div .carousel .slide,
+.footer .row .elenco-carousel [class^=col-] .carousel-slider .carousel .slide,
+.footer .row .elenco-carousel [class^=col-] .carousel-slider ul .carousel .slide {
+  background-color: #333;
+  width: 20% !important;
+  min-width: 20% !important;
+  margin: 0 10px;
+}
+.footer .container .elenco-carousel [class^=col-] .carousel .control-dots,
+.footer .row .elenco-carousel [class^=col-] .carousel .control-dots {
+  position: relative !important;
+  margin-top: 0;
+  margin-bottom: 5px;
+  padding-left: 0;
+}
+.footer .general h3 {
   margin: 0;
 }
+.footer .general p {
+  margin-bottom: 0;
+  padding-bottom: 10px;
+}
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-button {
+  display: block;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+}
+
+::-webkit-scrollbar-track-piece {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+::-webkit-scrollbar-corner {
+  display: none;
+}
+
+::-webkit-resizer {
+  display: none;
+}
+
+@media only screen and (min-width: 480px) {
+  .container {
+    width: 95%;
+    max-width: 100%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .container {
+    width: 95%;
+    max-width: 100%;
+  }
+}
+@media only screen and (min-width: 1140px) {
+  .container {
+    width: 95%;
+    max-width: 100%;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .container {
+    width: 95%;
+    max-width: 100%;
+  }
+}
 /* ==========================================================================
    Media Queries
    ========================================================================== */
+@media only screen and (max-width: 480px) {
+  /* ====================
+   INTERMEDIATE: Menu
+  ==================== */
+  nav a {
+    float: left;
+    width: 27%;
+    margin: 0 1.7%;
+    padding: 25px 2%;
+    margin-bottom: 0;
+  }
+
+  nav li:first-child a {
+    margin-left: 0;
+  }
+
+  nav li:last-child a {
+    margin-right: 0;
+  }
+
+  /* ========================
+  INTERMEDIATE: IE Fixes
+  ======================== */
+  nav ul li {
+    display: inline;
+  }
+
+  .oldie nav a {
+    margin: 0 0.7%;
+  }
+
+  /* ====================
+   WIDE: AUTHOR
+  ==================== */
+  .footer {
+    overflow: auto;
+    height: 400px !important;
+  }
+}
 @media only screen and (min-width: 480px) {
   /* ====================
    INTERMEDIATE: Menu
@@ -670,6 +835,11 @@ body {
 
   .oldie nav a {
     margin: 0 0.7%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .footer {
+    height: 30% !important;
   }
 }
 @media only screen and (min-width: 768px) {

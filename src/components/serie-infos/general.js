@@ -7,14 +7,14 @@ const facebookIcon = 'public/img/facebook.svg'
 class General extends Component {
     constructor(props) {
         super(props);
-
         this.state = {}
     }
 
     render() {
+        
         return (
-            <Row start="lg">
-                <Col lg={6} md={6} sm={12} xs={12}>
+            <Row start="lg" className="general">
+                <Col lg={4} md={4} sm={12} xs={12}>
                     <nav>
                         <ul>
                             <li
@@ -38,7 +38,10 @@ class General extends Component {
                         </ul>
                     </nav>
                 </Col>
-                <Col lg={6} md={6} sm={12} xs={12}>sinopse</Col>
+                <Col lg={8} md={8} sm={12} xs={12}>
+                    <h3>Sinopse</h3>
+                    <p>{this.props.data.Synopsis}</p>
+                </Col>
             </Row>
         );
     }
