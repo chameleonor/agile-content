@@ -44,8 +44,9 @@ class Collapsible extends Component {
             <div className={`panel ${isExpanded ? 'is-expanded' : ''}`} onClick={(e) => this.handleToggle(e)}>
                 <div className="panel-heading">
                     <h4>{EpisodeNumber} {Title}</h4>
+                    {/* <image href="/public/img/play-small-player-w.svg"></image> */}
                 </div>
-                <div className="panel-collapse" style={{height: currentHeight+'px'}}>
+                <div className={`panel-collapse ${isExpanded ? 'mrg-bt' : ''}`} style={{height: currentHeight+'px'}}>
                     <div className="panel-body" ref="inner">
                         <div style={imageStyle}></div>
                         <p>{Synopsis}</p>

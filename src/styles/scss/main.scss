@@ -214,7 +214,7 @@ body {
     [class^="col-"] {
         height: 100% !important;
         nav ul {
-            border-bottom: 3px solid rgba(187, 187, 187, 0.2);
+            border-bottom: 2px solid rgba(187, 187, 187, 0.2);
             -webkit-background-clip: padding-box;
             /* for Safari */
             background-clip: padding-box;
@@ -238,6 +238,12 @@ body {
                 height: 100%;
                 li {
                     margin: 10px 0;
+                    padding: 5px 0;
+                    border-bottom: 2px solid rgba(187, 187, 187, 0.2);
+                    -webkit-background-clip: padding-box;
+                    /* for Safari */
+                    background-clip: padding-box;
+                    /* for IE9+, Firefox 4+, Opera, Chrome */
                     span,
                     p {
                         opacity: 0.8;
@@ -246,21 +252,6 @@ body {
                         .panel-heading {
                             cursor: pointer;
                         }
-                        .panel-heading::after {
-                            content: "";
-                            top: 1.6em;
-                            right: 1.5em;
-                            position: absolute;
-                            display: inline-block;
-                            color: white;
-                            pointer-events: none;
-                            background-repeat: no-repeat;
-                            background-image: url("/public/img/play-small-player-w.svg");
-                            height: 2em;
-                            width: 2em;
-                            filter: brightness(0.8);
-                            background-size: cover;
-                        }
                         .panel-collapse {
                             overflow: hidden;
                             transition: height 0.5s ease-out;
@@ -268,19 +259,42 @@ body {
                         }
                         .panel-body {
                             border: none !important;
-                            margin-bottom: 20px;
+                            // margin-bottom: 20px;
                         }
                         h4 {
                             margin: 5px 0 !important;
+                            font-weight: 100;
                             opacity: 0.8;
                         }
                         p {
                             height: 100%; // padding: 4px;
                             // margin: 1px;
-                            line-height: 25px;
+                            line-height: 20px;
                             width: auto;
                             text-align: justify;
+                            font-size: 12pt;
+                            font-weight: 100;
+                            opacity: 0.5;
                         }
+                        .mrg-bt {
+                            margin-bottom: 20px;
+                        }
+                    }
+                    .playImage {
+                        content: ""; 
+                        // top: 1.6em;
+                        right: 0.5em;
+                        position: absolute;
+                        display: inline-block;
+                        color: white;
+                        pointer-events: none;
+                        background-repeat: no-repeat;
+                        background-image: url("/public/img/play-small-player-w.svg");
+                        height: 2em;
+                        width: 2em;
+                        // filter: brightness(0.8);
+                        filter: opacity(50%);
+                        background-size: cover;
                     }
                 }
             }

@@ -617,7 +617,7 @@ body {
 .content .season-list nav ul,
 .content .row nav ul,
 .content [class^=col-] nav ul {
-  border-bottom: 3px solid rgba(187, 187, 187, 0.2);
+  border-bottom: 2px solid rgba(187, 187, 187, 0.2);
   -webkit-background-clip: padding-box;
   /* for Safari */
   background-clip: padding-box;
@@ -651,6 +651,12 @@ body {
 .content .row .episodes-list ul li,
 .content [class^=col-] .episodes-list ul li {
   margin: 10px 0;
+  padding: 5px 0;
+  border-bottom: 2px solid rgba(187, 187, 187, 0.2);
+  -webkit-background-clip: padding-box;
+  /* for Safari */
+  background-clip: padding-box;
+  /* for IE9+, Firefox 4+, Opera, Chrome */
 }
 .content .container .episodes-list ul li span,
 .content .container .episodes-list ul li p,
@@ -668,24 +674,6 @@ body {
 .content [class^=col-] .episodes-list ul li .panel .panel-heading {
   cursor: pointer;
 }
-.content .container .episodes-list ul li .panel .panel-heading::after,
-.content .season-list .episodes-list ul li .panel .panel-heading::after,
-.content .row .episodes-list ul li .panel .panel-heading::after,
-.content [class^=col-] .episodes-list ul li .panel .panel-heading::after {
-  content: "";
-  top: 1.6em;
-  right: 1.5em;
-  position: absolute;
-  display: inline-block;
-  color: white;
-  pointer-events: none;
-  background-repeat: no-repeat;
-  background-image: url("/public/img/play-small-player-w.svg");
-  height: 2em;
-  width: 2em;
-  filter: brightness(0.8);
-  background-size: cover;
-}
 .content .container .episodes-list ul li .panel .panel-collapse,
 .content .season-list .episodes-list ul li .panel .panel-collapse,
 .content .row .episodes-list ul li .panel .panel-collapse,
@@ -699,13 +687,13 @@ body {
 .content .row .episodes-list ul li .panel .panel-body,
 .content [class^=col-] .episodes-list ul li .panel .panel-body {
   border: none !important;
-  margin-bottom: 20px;
 }
 .content .container .episodes-list ul li .panel h4,
 .content .season-list .episodes-list ul li .panel h4,
 .content .row .episodes-list ul li .panel h4,
 .content [class^=col-] .episodes-list ul li .panel h4 {
   margin: 5px 0 !important;
+  font-weight: 100;
   opacity: 0.8;
 }
 .content .container .episodes-list ul li .panel p,
@@ -713,9 +701,35 @@ body {
 .content .row .episodes-list ul li .panel p,
 .content [class^=col-] .episodes-list ul li .panel p {
   height: 100%;
-  line-height: 25px;
+  line-height: 20px;
   width: auto;
   text-align: justify;
+  font-size: 12pt;
+  font-weight: 100;
+  opacity: 0.5;
+}
+.content .container .episodes-list ul li .panel .mrg-bt,
+.content .season-list .episodes-list ul li .panel .mrg-bt,
+.content .row .episodes-list ul li .panel .mrg-bt,
+.content [class^=col-] .episodes-list ul li .panel .mrg-bt {
+  margin-bottom: 20px;
+}
+.content .container .episodes-list ul li .playImage,
+.content .season-list .episodes-list ul li .playImage,
+.content .row .episodes-list ul li .playImage,
+.content [class^=col-] .episodes-list ul li .playImage {
+  content: "";
+  right: 0.5em;
+  position: absolute;
+  display: inline-block;
+  color: white;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-image: url("/public/img/play-small-player-w.svg");
+  height: 2em;
+  width: 2em;
+  filter: opacity(50%);
+  background-size: cover;
 }
 
 .footer {

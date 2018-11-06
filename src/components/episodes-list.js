@@ -11,6 +11,7 @@ class EpisodesList extends Component {
         return _.map(this.props.season, episode => {
             return (
                 <li key={episode.ID}>
+                    <div className="playImage"></div>
                     <Collapsible data={episode} />
                 </li>
             );
