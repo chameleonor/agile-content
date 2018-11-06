@@ -13,7 +13,7 @@ class Collapsible extends Component {
     handleToggle(e){
         e.preventDefault();
 
-        console.log(this.refs.inner)
+        console.log(this.refs.inner.clientHeight)
 
         this.setState({
             isExpanded: !this.state.isExpanded,
@@ -36,7 +36,7 @@ class Collapsible extends Component {
             // height: '200px',
             height: "20em",
             overflow:'hidden',
-            width: 'auto',
+            width: '100%',
             margin: '5px 0'
         }
 

@@ -228,27 +228,38 @@ body {
             max-height: 95%;
             width: 100%;
             margin: 0;
-            overflow-y: auto;
-            overflow-x: hidden;
+            overflow: hidden; // overflow-x: hidden;
             ul {
                 overflow: auto;
                 width: 100%;
                 list-style: none;
                 text-align: left;
-                padding: 0;
-                margin: 0;
+                padding: 0 4% 0 0; // margin: 0;
                 height: 100%;
                 li {
                     margin: 10px 0;
-                    
                     span,
                     p {
                         opacity: 0.8;
                     }
-
                     .panel {
                         .panel-heading {
                             cursor: pointer;
+                        }
+                        .panel-heading::after {
+                            content: "";
+                            top: 1.6em;
+                            right: 1.5em;
+                            position: absolute;
+                            display: inline-block;
+                            color: white;
+                            pointer-events: none;
+                            background-repeat: no-repeat;
+                            background-image: url("/public/img/play-small-player-w.svg");
+                            height: 2em;
+                            width: 2em;
+                            filter: brightness(0.8);
+                            background-size: cover;
                         }
                         .panel-collapse {
                             overflow: hidden;
@@ -257,23 +268,22 @@ body {
                         }
                         .panel-body {
                             border: none !important;
+                            margin-bottom: 20px;
                         }
                         h4 {
                             margin: 5px 0 !important;
-                        }   
+                            opacity: 0.8;
+                        }
                         p {
-                            height: 100%;
-                            // padding: 4px;
+                            height: 100%; // padding: 4px;
                             // margin: 1px;
                             line-height: 25px;
                             width: auto;
                             text-align: justify;
-                            margin: 1em 0 !important;
                         }
                     }
                 }
             }
-            
         }
     }
 }
@@ -347,7 +357,6 @@ body {
 }
 
 // helpers
-
 .lg {
     width: 100% !important;
 }
@@ -364,34 +373,27 @@ body {
     width: 40% !important;
 }
 
-::-webkit-scrollbar {
-    width: 5px;
-}
-
-::-webkit-scrollbar-button {
-    display: block;
-}
-
-::-webkit-scrollbar-track {
-    display: none
-}
-
-::-webkit-scrollbar-track-piece {
-    display: none
-}
-
-::-webkit-scrollbar-thumb {
-    display: none
-}
-
-::-webkit-scrollbar-corner {
-    display: none
-}
-
-::-webkit-resizer {
-    display: none
-}
-
+// ::-webkit-scrollbar {
+//     display: none
+// }
+// ::-webkit-scrollbar-button {
+//     display: block;
+// }
+// ::-webkit-scrollbar-track {
+//     display: none
+// }
+// ::-webkit-scrollbar-track-piece {
+//     display: none
+// }
+// ::-webkit-scrollbar-thumb {
+//     display: none
+// }
+// ::-webkit-scrollbar-corner {
+//     display: none
+// }
+// ::-webkit-resizer {
+//     display: none
+// }
 @media only screen and (min-width: 480px) {
     .container {
         width: 95%;
