@@ -174,18 +174,40 @@ body {
 }
 
 .header {
+    top: 0;
     display: block;
-    height: 10%;
+    height: 20%;
     width: 100%;
     position: relative;
-    margin: 0;
+    margin-bottom: 10px;
     padding: 0;
+    // background-color: #0a0b0c;
+    background: linear-gradient(to top, transparent 0%, #0a0b0c 100%);
+    // opacity: 0.5;
+
+    .container,
+    .row,
+    [class^="col-"],
+    .title {
+        height: 100%;
+
+        h1 {
+            font-size: 4em;
+            text-shadow: 1px 1px 100px #0a0b0c;
+        }
+
+        h2 {
+            font-weight: normal;
+            opacity: 0.5;
+            font-size: 1.3em;
+        }
+    }
 }
 
 .content {
     display: block;
     position: relative;
-    height: 70%;
+    height: 60%;
     max-height: 75%;
     margin: 0;
     padding: 0;
@@ -196,7 +218,7 @@ body {
     [class^="col-"] {
         height: 100% !important;
         nav {
-            background-color: #131719;
+            background-color: #0a0b0c;
         }
         .episodes-list {
             // episodes list
@@ -249,7 +271,7 @@ body {
     position: fixed;
     height: 20%;
     width: 100%;
-    background-color: #131719;
+    background-color: #0a0b0c;
     bottom: 0; // serie infos
     .container,
     .row {
@@ -258,30 +280,42 @@ body {
             height: 100% !important;
             [class^="col-"] {
                 height: 100% !important;
-
                 .carousel-slider {
                     padding-bottom: 10px;
-                }
+                    
+                    button.control-arrow.control-prev:before {
+                        content: "<"
+                    }
 
-                div, .carousel-slider, .carousel-slider ul {
+                    button.control-arrow.control-next:before {
+                        content: ">"
+                    }
+                    
+                    button.control-arrow.control-prev:before,
+                    button.control-arrow.control-next:before {
+                        font-size: 20px;
+                        line-height: 1;
+                        opacity: 0.75;
+                        color: #fff;
+                        font-weight: bold;
+                        border: 0px !important;
+                    }
+                }
+                div,
+                .carousel-slider,
+                .carousel-slider ul {
                     margin-top: 10px;
                     height: 80% !important;
-
                     .carousel .slide {
                         background-color: #333;
                         width: 20% !important;
                         min-width: 20% !important;
                         margin: 0 10px;
-
-                        // li {
-                        //     width: 200px;
-                        //     background-color: "#333";
-                        // }
+                        div {
+                            height: 100%;
+                            margin-top: 0;
+                        }
                     }
-
-                    // button.control-prev {
-                    //     posi
-                    // }
                 }
                 .carousel .control-dots {
                     position: relative !important;

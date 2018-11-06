@@ -35,7 +35,7 @@ class Serie extends Component {
 
     const style = {
       // background: `url(${this.state.serieInfos.Images.Background}), linear-gradient(to bottom, transparent 90%, black 90%)`,
-      background: `linear-gradient(to bottom, transparent 0%, black 80%), url(${this.state.serieInfos.Images.Background})`,
+      background: `linear-gradient(to left, transparent -50%, #0a0b0c 90%), url(${this.state.serieInfos.Images.Background})`,
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       // height: `${window.innerHeight}px !important`,
