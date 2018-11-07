@@ -580,6 +580,7 @@ body {
 .header [class^=col-],
 .header .title {
   height: 100%;
+  float: left;
 }
 .header .container h1,
 .header .row h1,
@@ -835,8 +836,8 @@ body {
   color: white;
   pointer-events: none;
   background-repeat: no-repeat;
-  height: 6em;
-  width: 6em;
+  height: 5.5em;
+  width: 5.5em;
   filter: opacity(50%);
   background-size: cover;
   vertical-align: bottom;
@@ -877,6 +878,7 @@ body {
   color: #fff;
   font-weight: bold;
   border: 0px !important;
+  position: absolute;
 }
 .footer .container .elenco-carousel [class^=col-] div,
 .footer .container .elenco-carousel [class^=col-] .carousel-slider,
@@ -991,46 +993,16 @@ body {
    Media Queries
    ========================================================================== */
 @media only screen and (max-width: 480px) {
-  /* ====================
-   INTERMEDIATE: Menu
-  ==================== */
-  nav a {
-    float: left;
-    width: 27%;
-    margin: 0 1.7%;
-    padding: 25px 2%;
-    margin-bottom: 0;
-  }
-
-  nav li:first-child a {
-    margin-left: 0;
-  }
-
-  nav li:last-child a {
-    margin-right: 0;
-  }
-
-  /* ========================
-  INTERMEDIATE: IE Fixes
-  ======================== */
-  nav ul li {
-    display: inline;
-  }
-
-  .oldie nav a {
-    margin: 0 0.7%;
-  }
-
-  /* ====================
-   WIDE: AUTHOR
-  ==================== */
   .header {
     height: 10%;
   }
+  .header .container,
+.header .row,
+.header .title {
+    float: none !important;
+  }
   .header .title {
-    top: 0;
-    height: 90%;
-    margin: 1em 0 !important;
+    margin: 1.5em 0 !important;
   }
   .header .title h1 {
     font-size: 3em !important;
@@ -1056,105 +1028,11 @@ body {
   }
 }
 @media only screen and (max-width: 346px) {
-  .header {
-    height: 10%;
-  }
-  .header .title {
-    top: 0;
-    height: 100%;
-    margin-bottom: 1em 0 !important;
-  }
   .header .title h1 {
+    font-size: 1.2em !important;
+  }
+  .header .title h2 {
     font-size: 1em !important;
-    line-height: 0.5em;
-    margin: 0;
-  }
-  .header .title h2 {
-    font-size: 1em;
-  }
-}
-@media only screen and (min-width: 480px) {
-  /* ====================
-   INTERMEDIATE: Menu
-  ==================== */
-  nav a {
-    float: left;
-    width: 27%;
-    margin: 0 1.7%;
-    padding: 25px 2%;
-    margin-bottom: 0;
-  }
-
-  nav li:first-child a {
-    margin-left: 0;
-  }
-
-  nav li:last-child a {
-    margin-right: 0;
-  }
-
-  /* ========================
-   INTERMEDIATE: IE Fixes
-  ======================== */
-  nav ul li {
-    display: inline;
-  }
-
-  .oldie nav a {
-    margin: 0 0.7%;
-  }
-
-  .header .title h1 {
-    text-align: center;
-  }
-  .header .title h2 {
-    font-size: 1.2em;
-    text-align: center;
-  }
-}
-@media only screen and (max-width: 960px) {
-  .footer {
-    height: 30% !important;
-    overflow: auto;
-  }
-  .footer .general ul li {
-    margin-bottom: 1em;
-  }
-}
-@media only screen and (min-width: 768px) {
-  /* ====================
-   WIDE: CSS3 Effects
-  ==================== */
-  .header-container,
-.main aside {
-    -webkit-box-shadow: 0 5px 10px #aaa;
-    -moz-box-shadow: 0 5px 10px #aaa;
-    box-shadow: 0 5px 10px #aaa;
-  }
-
-  /* ============
-   WIDE: Menu
-  ============ */
-  .title {
-    float: left;
-  }
-
-  nav {
-    float: left;
-    width: 100%;
-  }
-
-  /* ============
-   WIDE: Main
-  ============ */
-  .main article {
-    float: left;
-    width: 57%;
-  }
-
-  .main aside {
-    float: right;
-    width: 28%;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -1169,141 +1047,29 @@ body {
     top: 2em !important;
   }
 }
-@media only screen and (min-width: 1140px) {
-  /* ===============
-   Maximal Width
-  =============== */
-  .wrapper {
-    width: 1026px;
-    /* 1140px - 10% for margins */
-    margin: 0 auto;
+@media only screen and (max-width: 960px) {
+  .footer {
+    height: 30% !important;
+    overflow: auto;
   }
-}
-@media only screen and (max-width: 1465px) {
-  .footer .general .general-icon {
-    height: 5em !important;
-    width: 5em !important;
+  .footer .general ul li {
+    margin-bottom: 1em;
   }
-}
-@media only screen and (max-width: 1265px) {
-  .footer .general .general-icon {
-    height: 4em !important;
-    width: 4em !important;
-  }
-}
-@media (min-width: 960px) and (max-width: 1261px) {
   .footer .general .general-icon {
     height: 3.5em !important;
     width: 3.5em !important;
   }
 }
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-.hidden {
-  display: none !important;
-  visibility: hidden;
+@media (min-width: 960px) and (max-width: 1262px) {
+  .footer .general .general-icon {
+    height: 3.5em !important;
+    width: 3.5em !important;
+  }
 }
-
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto;
-}
-
-.invisible {
-  visibility: hidden;
-}
-
-.clearfix:before,
-.clearfix:after {
-  content: " ";
-  display: table;
-}
-
-.clearfix:after {
-  clear: both;
-}
-
-.clearfix {
-  *zoom: 1;
-}
-
-/* ==========================================================================
-   Print styles
-   ========================================================================== */
-@media print {
-  *,
-*:before,
-*:after {
-    background: transparent !important;
-    color: #000 !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-
-  a,
-a:visited {
-    text-decoration: underline;
-  }
-
-  a[href]:after {
-    content: " (" attr(href) ")";
-  }
-
-  abbr[title]:after {
-    content: " (" attr(title) ")";
-  }
-
-  a[href^="#"]:after,
-a[href^="javascript:"]:after {
-    content: "";
-  }
-
-  pre,
-blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
-  thead {
-    display: table-header-group;
-  }
-
-  tr,
-img {
-    page-break-inside: avoid;
-  }
-
-  img {
-    max-width: 100% !important;
-  }
-
-  p,
-h2,
-h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h2,
-h3 {
-    page-break-after: avoid;
+@media (min-width: 1263px) and (max-width: 1465px) {
+  .footer .general .general-icon {
+    height: 5em !important;
+    width: 5em !important;
   }
 }
 
