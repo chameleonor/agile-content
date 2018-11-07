@@ -34,11 +34,13 @@ It is a React application that facility the developing and gives a better perfor
 
 ## Instalation
 
-**FIRST: BE SURE THAT YOU HAVE NPM INSTALED -> https://www.npmjs.com/get-npm**
+**FIRST: BE SURE THAT YOU HAVE NPM INSTALLED -> https://www.npmjs.com/get-npm**
 
 On the terminal:
 
 Clone the project from https://github.com/chameleonor/agile-content.git
 
-`$ npm install`
-`$ npm start`
+```
+$ npm install
+$ npm start
+```
