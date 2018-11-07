@@ -338,13 +338,30 @@ body {
                 opacity: 0.5;
             }
         }
+        nav ul::after {
+            content: "";
+            background-repeat: no-repeat;
+            background-image: url("/public/img/logo-telecine.svg");
+            color: white;
+            pointer-events: none;
+            height: 2.1em;
+            width: 3.5em;
+            filter: opacity(50%);
+            background-size: cover;
+            right: 4%;
+            top: 1em;
+            position: absolute;
+        }
         .general {
             h3 {
-                margin: 0
+                margin-top: 0.5em;
+                font-size: 1.5em;
+                opacity: 0.5;
             }
             p {
                 margin-bottom: 0;
                 padding-bottom: 10px;
+                opacity: 0.5;
             }
             ul {
                 width: 100%;
@@ -368,14 +385,13 @@ body {
                 display: block;
                 color: white;
                 pointer-events: none;
-                background-repeat: no-repeat; // background-image: url("/public/img/play-small-player-w.svg");
+                background-repeat: no-repeat;
                 height: 6em;
                 width: 6em;
                 filter: opacity(50%);
                 background-size: cover;
                 vertical-align: bottom;
                 text-align: center;
-
                 div {
                     position: relative;
                     top: 100%;
@@ -452,27 +468,28 @@ body {
     height: 95%;
 }
 
-// ::-webkit-scrollbar {
-//     display: none
-// }
-// ::-webkit-scrollbar-button {
-//     display: block;
-// }
-// ::-webkit-scrollbar-track {
-//     display: none
-// }
-// ::-webkit-scrollbar-track-piece {
-//     display: none
-// }
-// ::-webkit-scrollbar-thumb {
-//     display: none
-// }
-// ::-webkit-scrollbar-corner {
-//     display: none
-// }
-// ::-webkit-resizer {
-//     display: none
-// }
+::-webkit-scrollbar {
+    display: none
+}
+::-webkit-scrollbar-button {
+    display: block;
+}
+::-webkit-scrollbar-track {
+    display: none
+}
+::-webkit-scrollbar-track-piece {
+    display: none
+}
+::-webkit-scrollbar-thumb {
+    display: none
+}
+::-webkit-scrollbar-corner {
+    display: none
+}
+::-webkit-resizer {
+    display: none
+}
+
 @media only screen and (min-width: 480px) {
     .container {
         width: 95%;
@@ -624,7 +641,6 @@ INTERMEDIATE: IE Fixes
     .footer {
         height: 30% !important;
         overflow: auto;
-
         .general {
             ul li {
                 margin-bottom: 1em;
@@ -663,6 +679,21 @@ INTERMEDIATE: IE Fixes
     .main aside {
         float: right;
         width: 28%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .footer {
+        nav ul li {
+            display: -webkit-box !important;
+        }
+        nav ul li:last-child {
+            margin-right: 0
+        }
+        nav ul::after {
+            right: 3.1% !important;
+            top: 2em !important;
+        }
     }
 }
 
