@@ -9,7 +9,8 @@
     "watch-sass": "sass --watch src/styles/scss:src/styles/css",
     "watch-webpack": "webpack-dev-server --watch",
     "start-concurrently": "concurrently \"npm run watch-sass\" \"npm run watch-webpack\"",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
