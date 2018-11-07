@@ -7,8 +7,12 @@ const app = express();
 app.use(express.static(__dirname));
 
 // send the user to index html page inspite of the url
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, 'index.html'));
+// });
+
+app.all('*', function (req, res) {
+    res.sendFile(__dirname + '/index.html') /* <= Where my ng-view is located */
+})
 
 app.listen(port);
