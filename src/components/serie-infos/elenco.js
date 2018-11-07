@@ -16,7 +16,6 @@ class Elenco extends Component {
             showArrows: null,
             centerSlidePercentage: null,
             centerMode: null
-
         }
 
         this.updateDimensions = this.updateDimensions.bind(this);

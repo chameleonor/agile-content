@@ -102,7 +102,8 @@ video {
   /* for Safari */
   background-clip: padding-box;
   /* for IE9+, Firefox 4+, Opera, Chrome */
-  text-align: left !important;
+  text-align: left;
+  padding: 0;
 }
 .content .container nav ul li,
 .content .season-list nav ul li,
@@ -118,7 +119,7 @@ video {
 .content .season-list nav ul .liActive,
 .content .row nav ul .liActive,
 .content [class^=col-] nav ul .liActive {
-  background-color: red;
+  border-bottom: 2px solid rgba(43, 209, 24, 0.8);
 }
 .content .container .episodes-list,
 .content .season-list .episodes-list,
@@ -253,6 +254,7 @@ video {
   background-clip: padding-box;
   /* for IE9+, Firefox 4+, Opera, Chrome */
   text-align: left !important;
+  padding: 0;
 }
 .footer .container nav ul li,
 .footer .row nav ul li {
@@ -263,6 +265,10 @@ video {
   width: auto;
   text-align: left;
   opacity: 0.5;
+}
+.footer .container nav ul .liActive,
+.footer .row nav ul .liActive {
+  border-bottom: 2px solid rgba(43, 209, 24, 0.8);
 }
 .footer .container nav ul::after,
 .footer .row nav ul::after {

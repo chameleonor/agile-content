@@ -13,16 +13,10 @@ class SeasonList extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { episodes: null, selectedSeason: null, colSize: null, isActive: false, };
+    this.state = { episodes: null, selectedSeason: null, colSize: null, selectedTabId: null };
 
-    this.toggleClass = this.toggleClass.bind(this);
     this.updateDimensions = this.updateDimensions.bind(this);
   }
-
-  toggleClass() {
-    const currentState = this.state.isActive;
-    this.setState({ isActive: !currentState });
-  };
 
   updateDimensions() {
     if (window.innerWidth <= 768) {
@@ -58,11 +52,10 @@ class SeasonList extends Component {
         var group = _.groupBy(_.compact(res.payload.data), 'SeasonNumber');
         this.setState({ episodes: group, selectedSeason: group[1] })
       });
-
-    this.updateDimensions();
   }
 
   componentDidMount() {
+    this.setState({selectedTabId : "1"});
     window.addEventListener("resize", this.updateDimensions);
   }
 
@@ -70,12 +63,15 @@ class SeasonList extends Component {
     window.removeEventListener("resize", this.updateDimensions);
   }
 
-  selectSeason(selectedSeason, e) {
-    e.preventDefault();
-    console.log(e)
-    this.toggleClass()
+  selectSeason(selectedSeason, key) {
+    // e.preventDefault();
+    console.log(key)
+    this.setState({ selectedTabId : key })
     this.setState({ selectedSeason })
-    // this.setState.()
+  }
+  
+  isActive(id) {
+    return this.state.selectedTabId === id;
   }
 
   renderList() {
@@ -88,8 +84,8 @@ class SeasonList extends Component {
       return (
         <li
           key={key}
-          onClick={(e) => this.selectSeason(value, e)}
-          className={this.state.isActive ? 'liActive' : null}
+          onClick={() => this.selectSeason(value, key)}
+          className={this.isActive(key) ? 'liActive' : null}
         >
           T{key}
         </li>

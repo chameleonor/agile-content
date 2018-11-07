@@ -8,9 +8,10 @@ import { Row, Col } from 'react-flexbox-grid';
 class SerieInfos extends Component {
   constructor(props) {
     super(props);
-    this.state = { option: 0, height: null }
+    this.state = { options: { 1: "General", 2: "Elenco", 3: "Principales Premios" }, option: 0, height: null, selectedTabId: null }
 
     this.updateDimensions = this.updateDimensions.bind(this);
+    // this.selectOption = this.selectOption.bind(this);
   }
 
   updateDimensions() {
@@ -27,10 +28,12 @@ class SerieInfos extends Component {
 
   componentWillMount() {
     this.updateDimensions();
+    this.setState({ option: 1, selectedTabId: 1 });
   }
 
   componentDidMount() {
     window.addEventListener("resize", this.updateDimensions);
+    // this.setState({ option: 1, selectedTabId: 1 });
   }
 
   componentWillUnmount() {
@@ -38,25 +41,51 @@ class SerieInfos extends Component {
   }
 
   renderInfo() {
+    console.log(this.state.option)
+
     switch (this.state.option) {
-      case 0:
-        return (
-          <General data={this.props.serieInfos} />
-        )
-        break;
       case 1:
-        return (
-          <Elenco data={this.props.serieInfos} />
-        )
+        return <General data={this.props.serieInfos} />
         break;
       case 2:
-        return (
-          <Premio data={this.props.serieInfos} />
-        )
+        return <Elenco data={this.props.serieInfos} />
+        break;
+      case 3:
+        return <Premio data={this.props.serieInfos} />
         break;
       default:
+        // <General data={this.props.serieInfos} />
         break;
     }
+  }
+
+  selectOption(key) {
+    this.setState({ option: key, selectedTabId: key })
+  }
+
+  isActive(key) {
+    return this.state.selectedTabId === key;
+  }
+
+  renderList() {
+
+    const options = this.state.options
+
+    if (_.isEmpty(options)) {
+      return "Loading..."
+    }
+
+    return _.map(options, (value, key) => {
+      return (
+        <li
+          key={key}
+          onClick={() => this.selectOption(key)}
+          className={this.isActive(key) ? 'liActive' : null}
+        >
+          {value}
+        </li>
+      );
+    });
   }
 
   render() {
@@ -70,9 +99,10 @@ class SerieInfos extends Component {
         <Col lg={12} md={12} sm={12} xs={12}>
           <nav className="serie-infos-menu">
             <ul>
-              <li onClick={() => { this.setState({ option: 0 }) }}>General</li>
-              <li onClick={() => { this.setState({ option: 1 }) }}>Elenco</li>
-              <li onClick={() => { this.setState({ option: 2 }) }}>Principales Premios</li>
+              <li onClick={() => { this.selectOption(1) }} className={this.isActive(1) ? 'liActive' : null}>General</li>
+              <li onClick={() => { this.selectOption(2) }} className={this.isActive(2) ? 'liActive' : null}>Elenco</li>
+              <li onClick={() => { this.selectOption(3) }} className={this.isActive(3) ? 'liActive' : null}>Principales Premios</li>
+              {/* {this.renderList()} */}
             </ul>
           </nav>
         </Col>

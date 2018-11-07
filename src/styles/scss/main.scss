@@ -2,6 +2,8 @@
    Author's custom styles
    ========================================================================== */
 
+$liActive : 2px solid rgba(43, 209, 24, 0.8);
+
 html {
     color: #FFF;
 }
@@ -92,7 +94,8 @@ video {
             /* for Safari */
             background-clip: padding-box;
             /* for IE9+, Firefox 4+, Opera, Chrome */
-            text-align: left !important;
+            text-align: left;
+            padding: 0;
             li {
                 display: inline-block;
                 padding: 10px 0;
@@ -101,7 +104,7 @@ video {
                 opacity: 0.5;
             }
             .liActive {
-                background-color: red;
+                border-bottom: $liActive;
             }
         }
         .episodes-list {
@@ -204,6 +207,7 @@ video {
             background-clip: padding-box;
             /* for IE9+, Firefox 4+, Opera, Chrome */
             text-align: left !important;
+            padding: 0;
             li {
                 font-size: 18pt;
                 display: inline-block;
@@ -212,6 +216,9 @@ video {
                 width: auto;
                 text-align: left;
                 opacity: 0.5;
+            }
+            .liActive {
+                border-bottom: $liActive;
             }
         }
         nav ul::after {
