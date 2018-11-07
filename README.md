@@ -44,3 +44,8 @@ Clone the project from https://github.com/chameleonor/agile-content.git
 $ npm install
 $ npm start
 ```
+## Tests
+      
+![768px](https://github.com/chameleonor/agile-content/blob/master/public/img/768.PNG)
+![960px](https://github.com/chameleonor/agile-content/blob/master/public/img/960.PNG)
+![1200px](https://github.com/chameleonor/agile-content/blob/master/public/img/plus-1200.PNG)
