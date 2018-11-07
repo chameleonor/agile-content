@@ -8,7 +8,8 @@
   "scripts": {
     "watch-sass": "sass --watch src/styles/scss:src/styles/css",
     "watch-webpack": "webpack-dev-server --watch",
-    "start": "concurrently \"npm run watch-sass\" \"npm run watch-webpack\""
+    "start-dev": "concurrently \"npm run watch-sass\" \"npm run watch-webpack\"",
+    "start": "webpack-dev-server"
   },
   "author": "",
   "license": "ISC",
@@ -21,7 +22,6 @@
     "babel-preset-stage-1": "^6.1.18",
     "concurrently": "^4.0.1",
     "css-loader": "0.26.1",
-    "express": "^4.16.4",
     "lodash": "^3.10.1",
     "node-sass": "^4.9.4",
     "npm": "^6.4.1",
