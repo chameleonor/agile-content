@@ -1,19 +1,18 @@
 import React, { Component } from "react";
 
-import { Row, Col } from 'react-flexbox-grid';
-
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
 import _ from "lodash";
 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+
 class Elenco extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
-            axis: null, 
-            carouselOptions: "standard", 
-            showIndicators: null, 
+        this.state = {
+            axis: null,
+            carouselOptions: "standard",
+            showIndicators: null,
             showArrows: null,
             centerSlidePercentage: null,
             centerMode: null
@@ -25,17 +24,17 @@ class Elenco extends Component {
 
     updateDimensions() {
         if (window.innerWidth <= 768) {
-            this.setState({ 
-                axis: "vertical", 
-                showIndicators: true, 
+            this.setState({
+                axis: "vertical",
+                showIndicators: true,
                 showArrows: false,
-                centerSlidePercentage: 50,
+                centerSlidePercentage: 100,
                 centerMode: false
             })
         } else {
-            this.setState({ 
-                axis: "horizontal", 
-                showIndicators: false, 
+            this.setState({
+                axis: "horizontal",
+                showIndicators: false,
                 showArrows: true,
                 centerSlidePercentage: 35,
                 centerMode: true
@@ -58,7 +57,7 @@ class Elenco extends Component {
     renderCarousel() {
 
         const aditions = {
-            axis : this.state.axis,
+            axis: this.state.axis,
             carouselOptions: this.state.carouselOptions,
             showIndicators: this.state.showIndicators,
             showArrows: this.state.showArrows,
@@ -73,7 +72,6 @@ class Elenco extends Component {
                 axis="horizontal"
                 showStatus={false}
                 {...aditions}
-                // axis={this.state.axis}
             >
                 {this.renderItens()}
             </Carousel>
@@ -98,11 +96,7 @@ class Elenco extends Component {
         }
 
         return (
-            <Row middle="xs" start="xs">
-                <Col lg={12} md={12} sm={12} xs={12}>
-                    {this.renderCarousel()}
-                </Col>
-            </Row>
+            <div className="elenco-carousel">{this.renderCarousel()}</div>
         );
     }
 }

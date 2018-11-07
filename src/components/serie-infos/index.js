@@ -8,7 +8,33 @@ import { Row, Col } from 'react-flexbox-grid';
 class SerieInfos extends Component {
   constructor(props) {
     super(props);
-    this.state = { option: 0 }
+    this.state = { option: 0, height: null }
+
+    this.updateDimensions = this.updateDimensions.bind(this);
+  }
+
+  updateDimensions() {
+    if (window.innerWidth <= 768) {
+      this.setState({
+        height: "65%"
+      })
+    } else {
+      this.setState({
+        height: "100%"
+      })
+    }
+  }
+
+  componentWillMount() {
+    this.updateDimensions();
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.updateDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions);
   }
 
   renderInfo() {
@@ -20,9 +46,7 @@ class SerieInfos extends Component {
         break;
       case 1:
         return (
-          <div className="elenco-carousel">
-            <Elenco data={this.props.serieInfos} />
-          </div>
+          <Elenco data={this.props.serieInfos} />
         )
         break;
       case 2:
@@ -37,12 +61,12 @@ class SerieInfos extends Component {
 
   render() {
     const contentStyle = {
-      height : "100%"
+      height: this.state.height,
     }
 
     return (
-      <Row middle="lg" start="lg">
-
+      // <Row middle="lg" start="lg">
+      <Row>
         <Col lg={12} md={12} sm={12} xs={12}>
           <nav className="serie-infos-menu">
             <ul>

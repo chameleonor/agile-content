@@ -6,8 +6,9 @@
   "repository": "",
   "proxy": "https://sample-api-78c77.firebaseio.com/",
   "scripts": {
-    "sass": "sass --watch src/styles/scss:src/styles/css",
-    "start": "webpack-dev-server --watch"
+    "watch-sass": "sass --watch src/styles/scss:src/styles/css",
+    "watch-webpack": "webpack-dev-server --watch",
+    "start": "concurrently \"npm run watch-sass\" \"npm run watch-webpack\""
   },
   "author": "",
   "license": "ISC",

@@ -1,28 +1,30 @@
-/*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
 
 html {
     color: #FFF;
-    font-size: 1em;
-    line-height: 1.4;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font: 16px/26px 'Nunito', Helvetica, Helvetica Neue, Arial;
 }
 
 ::-moz-selection {
-    background: #b3d4fc;
+    background: #fff;
     text-shadow: none;
 }
 
 ::selection {
-    background: #b3d4fc;
+    background: #fff;
     text-shadow: none;
-}
-
-hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
 }
 
 audio,
@@ -32,134 +34,6 @@ img,
 svg,
 video {
     vertical-align: middle;
-}
-
-fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
-}
-
-textarea {
-    resize: vertical;
-}
-
-.browserupgrade {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
-}
-
-/* ===== Initializr Styles ==================================================
-   Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
-   ========================================================================== */
-
-body {
-    font: 16px/26px Helvetica, Helvetica Neue, Arial;
-}
-
-.wrapper {
-    width: 90%;
-    margin: 0 5%;
-}
-
-/* ===================
-    ALL: Orange Theme
-   =================== */
-
-.header-container {
-    border-bottom: 20px solid #e44d26;
-}
-
-.footer-container,
-.main aside {
-    border-top: 20px solid #e44d26;
-}
-
-.header-container,
-.footer-container,
-.main aside {
-    background: #f16529;
-}
-
-.title {
-    color: white;
-}
-
-/* ==============
-    MOBILE: Menu
-   ============== */
-
-nav ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-nav a {
-    display: block;
-    margin-bottom: 10px;
-    padding: 15px 0;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-    color: white;
-    background: #e44d26;
-}
-
-nav a:hover,
-nav a:visited {
-    color: white;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-/* ==============
-    MOBILE: Main
-   ============== */
-
-.main {
-    padding: 30px 0;
-}
-
-.main article h1 {
-    font-size: 2em;
-}
-
-.main aside {
-    color: white;
-    padding: 0px 5% 10px;
-}
-
-.footer-container footer {
-    color: white;
-    padding: 20px 0;
-}
-
-/* ===============
-    ALL: IE Fixes
-   =============== */
-
-.ie7 .title {
-    padding-top: 20px;
-}
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-body,
-html {
-    height: 100%;
-}
-
-body {
-    padding: 0;
-    margin: 0; // font-family: 'Roboto', sans-serif;
-    font-family: 'Nunito', sans-serif;
 }
 
 .root {
@@ -291,8 +165,8 @@ body {
                     }
                     .playImage {
                         content: ""; // top: 1.6em;
-                        right: 0.5em;
-                        position: absolute;
+                        // right: 0.5em;
+                        position: static;
                         display: inline-block;
                         color: white;
                         pointer-events: none;
@@ -302,6 +176,7 @@ body {
                         width: 2em; // filter: brightness(0.8);
                         filter: opacity(50%);
                         background-size: cover;
+                        float: right;
                     }
                 }
             }
@@ -313,12 +188,12 @@ body {
     display: block;
     position: fixed;
     height: 25%;
-    width: 100%; // background-color: #0a0b0c;
+    width: 100%;
     background-color: #131719;
-    bottom: 0; // serie infos
+    bottom: 0;
     .container,
     .row {
-        height: 100% !important;
+        height: 100% !important; // TAB NAV
         .serie-infos-menu {
             margin: 1.2em 0;
         }
@@ -352,7 +227,7 @@ body {
             right: 4%;
             top: 1em;
             position: absolute;
-        }
+        } // TAB GENERAL
         .general {
             h3 {
                 margin-top: 0.5em;
@@ -398,52 +273,37 @@ body {
                     top: 100%;
                 }
             }
-        }
+        } // TAB ELENCO
         .elenco-carousel {
-            height: 100% !important;
-            [class^="col-"] {
-                height: 100% !important;
-                .carousel-slider {
-                    padding-bottom: 10px;
-                    button.control-arrow.control-prev:before {
-                        content: "<"
-                    }
-                    button.control-arrow.control-next:before {
-                        content: ">"
-                    }
-                    button.control-arrow.control-prev:before,
-                    button.control-arrow.control-next:before {
-                        font-size: 20px;
-                        line-height: 1;
-                        opacity: 0.75;
-                        color: #fff;
-                        font-weight: bold;
-                        border: 0px !important;
-                        position: absolute;
-                    }
-                }
-                div,
-                .carousel-slider,
-                .carousel-slider ul {
-                    margin-top: 10px;
-                    height: 80% !important;
-                    .carousel .slide {
+            height: 100%;
+            div,
+            .carousel-slider {
+                // margin-top: 10px;
+                height: 70%;
+                .carousel-slider ul,
+                .slider-wrapper {
+                    height: 100%;
+                    .slide {
                         background-color: #333;
-                        width: 20% !important;
-                        min-width: 20% !important;
+                        width: 20%;
+                        min-width: 20%;
                         margin: 0 10px;
                         div {
                             height: 100%;
                             margin-top: 0;
+                            vertical-align: middle;
+                            display: block;
+                            position: relative;
+                            line-height: 7em;
                         }
                     }
                 }
-                .carousel .control-dots {
-                    position: relative !important;
-                    margin-top: 0;
-                    margin-bottom: 5px;
-                    padding-left: 0;
-                }
+            }
+            .carousel .control-dots {
+                position: relative !important;
+                margin-top: 0;
+                margin-bottom: 5px;
+                padding-left: 0;
             }
         }
     }
@@ -586,6 +446,35 @@ body {
         nav ul::after {
             right: 3.1% !important;
             top: 2em !important;
+        }
+
+        .elenco-carousel {
+            height: 80% !important;
+            div,
+            .carousel-slider {
+                // margin-top: 10px;
+                height: 100% !important;
+                .carousel-slider ul,
+                .slider-wrapper {
+                    height: 80% !important;
+                    .slide {
+                        background-color: #333;
+                        width: 100% !important;
+                        min-width: 100% !important;
+                        margin: 0;
+                        height: 2em !important;
+                        div {
+                            height: 2em !important;
+                            margin: 0.5em 0 !important;
+                            line-height: 2em !important;
+                        }
+                    }
+                }
+            }
+            .carousel .control-dots {
+                height: 10% !important;
+                position: relative !important;
+            }
         }
     }
 }
