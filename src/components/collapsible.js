@@ -23,8 +23,6 @@ class Collapsible extends Component {
 
     render(){
 
-        // console.log(currentHeight)
-
         const {Duration, EpisodeNumber, Title, Image, Synopsis} = this.props.data;
         const {isExpanded, height} = this.state;
         const currentHeight = isExpanded ? height : 0;
@@ -33,7 +31,6 @@ class Collapsible extends Component {
             backgroundImage : `url(${Image})`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
-            // height: '200px',
             height: "20em",
             overflow:'hidden',
             width: '100%',
@@ -45,7 +42,6 @@ class Collapsible extends Component {
             <div className={`panel ${isExpanded ? 'is-expanded' : ''}`} onClick={(e) => this.handleToggle(e)}>
                 <div className="panel-heading">
                     <h4>{EpisodeNumber} {Title}</h4>
-                    {/* <image href="/public/img/play-small-player-w.svg"></image> */}
                 </div>
                 <div className={`panel-collapse ${isExpanded ? 'mrg-bt' : ''}`} style={{height: currentHeight+'px'}}>
                     <div className="panel-body" ref="inner">

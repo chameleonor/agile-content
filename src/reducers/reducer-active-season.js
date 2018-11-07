@@ -5,7 +5,6 @@ export default function(state = null, action) {
         case SEASON_SELECTED:
         return action.payload;
     }
-
     return state;
 }
   

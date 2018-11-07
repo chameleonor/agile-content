@@ -2,3 +2,5 @@
 bundle.js
 npm-debug.log
 *.css
+package-lock.json
+vim.exe.stackdump

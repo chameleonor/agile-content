@@ -11,7 +11,6 @@ class SerieInfos extends Component {
     this.state = { options: { 1: "General", 2: "Elenco", 3: "Principales Premios" }, option: 0, height: null, selectedTabId: null }
 
     this.updateDimensions = this.updateDimensions.bind(this);
-    // this.selectOption = this.selectOption.bind(this);
   }
 
   updateDimensions() {
@@ -33,7 +32,6 @@ class SerieInfos extends Component {
 
   componentDidMount() {
     window.addEventListener("resize", this.updateDimensions);
-    // this.setState({ option: 1, selectedTabId: 1 });
   }
 
   componentWillUnmount() {
@@ -94,7 +92,6 @@ class SerieInfos extends Component {
     }
 
     return (
-      // <Row middle="lg" start="lg">
       <Row>
         <Col lg={12} md={12} sm={12} xs={12}>
           <nav className="serie-infos-menu">

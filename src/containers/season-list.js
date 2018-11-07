@@ -20,27 +20,22 @@ class SeasonList extends Component {
 
   updateDimensions() {
     if (window.innerWidth <= 768) {
-      console.log('=========> 768')
       this.setState({
         colSize: "lg"
       })
     } else if (1150 >= window.innerWidth && window.innerWidth > 768) {
-      console.log('=========> 991')
       this.setState({
         colSize: "md"
       })
     } else if (1400 >= window.innerWidth && window.innerWidth > 1150) {
-      console.log('=========> 991')
       this.setState({
         colSize: "sm"
       })
     } else if (window.innerWidth > 1400) {
-      console.log('=========> 991')
       this.setState({
         colSize: "xs"
       })
     }
-    // console.log('hi')
   }
 
   componentWillMount() {
@@ -64,8 +59,6 @@ class SeasonList extends Component {
   }
 
   selectSeason(selectedSeason, key) {
-    // e.preventDefault();
-    console.log(key)
     this.setState({ selectedTabId : key })
     this.setState({ selectedSeason })
   }
