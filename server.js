@@ -1,13 +1,20 @@
-const express = require('express');
-const port = process.env.PORT || 8080;
-const app = express();
+var express = require('express');
 
-app.set('appPath', 'public');
-app.use(express.static(__dirname + '/public'));
+// Create the app
+var app = express();
 
-app.route('/*')
-    .get(function (req, res) {
-        res.sendfile(app.get('appPath') + '/index.html');
-    });
+const PORT = process.env.PORT || 3000;
 
-app.listen(port);
+app.use(function (req, res, next) {
+  if (req.headers['x-forwarded-proto'] === 'https') {
+    res.redirect('http://' + req.hostname + req.url);
+  } else {
+    next();
+  }
+});
+
+app.use(express.static('public'));
+
+app.listen(PORT, function() {
+  console.log('Express Server is up on port ' + PORT);
+});
